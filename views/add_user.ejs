@@ -1,0 +1,21 @@
+<%- include('navbar') %>
+    <div class="container">
+        <h2>用户添加</h2>
+        <form id="editUserForm" action="/users/add" method="post">
+            <div class="form-group">
+                <label for="editUserName">用户名</label>
+                <input type="text" class="form-control" id="editUserName" name="username" required />
+            </div>
+            <div class="form-group">
+                <label for="editUserPhone">密码</label>
+                <input type="text" class="form-control" id="editUserPhone" name="password" required />
+            </div>
+            <div class="btns">
+                <input class="btn btn-add" type="submit" value="确定" />
+                <a class="btn btn-return" href="/users">返回</a>
+            </div>
+        </form>
+    </div>
+    </body>
+
+    </html>

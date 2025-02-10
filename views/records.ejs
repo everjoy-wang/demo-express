@@ -1,0 +1,48 @@
+<%- include('navbar') %>
+    <div class="container">
+        <h2>借阅图书管理</h2>
+        <a class="btn btn-primary" href="/page_record">添加借阅</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名称</th>
+                    <th>图书名称</th>
+                    <th>借阅时间</th>
+                    <th>归还时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <% records.forEach(function(record, index) { %>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <%= record.username %>
+                        </td>
+                        <td>
+                            <%= record.title %>
+                        </td>
+                        <td>
+                            <%= record.borrow_date %>
+                        </td>
+                        <td>
+                            <%= record.return_date %>
+                        </td>
+                        <td>
+                            <div class="btns">
+                                <% if (!record.return_date) { %>
+                                    <a class="btn btn-edit" href="/records/update/<%= record.id %>">归还</a>
+                                    <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </body>
+
+    </html>

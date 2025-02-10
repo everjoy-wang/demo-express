@@ -1,0 +1,39 @@
+<%- include('navbar') %>
+    <div class="container">
+        <h2>用户管理</h2>
+        <a class="btn btn-primary" href="/page_user">添加用户</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <% users.forEach(function(user) { %>
+                    <tr>
+                        <td>
+                            <%= user.id %>
+                        </td>
+                        <td>
+                            <%= user.username %>
+                        </td>
+                        <td>
+                            <%= user.password %>
+                        </td>
+                        <td>
+                            <div class="btns">
+                                <a class="btn btn-edit" href="/users/<%= user.id %>">修改</a>
+                                <a class="btn btn-danger" href="/users/del/<%= user.id %>">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </body>
+
+    </html>

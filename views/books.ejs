@@ -1,0 +1,43 @@
+<%- include('navbar') %>
+    <div class="container">
+        <h2>图书管理</h2>
+        <a class="btn btn-primary" href="/page_book">添加图书</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>图书名称</th>
+                    <th>作者名称</th>
+                    <th>出版社名称</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <% books.forEach(function(book, index) { %>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <%= book.title %>
+                        </td>
+                        <td>
+                            <%= book.author %>
+                        </td>
+                        <td>
+                            <%= book.publisher %>
+                        </td>
+                        <td>
+                            <div class="btns">
+                                <a class="btn btn-edit" href="/books/<%= book.id %>">修改</a>
+                                <a class="btn btn-danger" href="/books/del/<%= book.id %>">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </body>
+
+    </html>
